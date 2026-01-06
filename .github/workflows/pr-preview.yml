@@ -15,6 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Remove CNAME for preview
+        run: rm -f CNAME
+
       - name: Deploy to GitHub Pages Preview
         uses: rossjrw/pr-preview-action@v1
         with:
