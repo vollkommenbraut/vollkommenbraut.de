@@ -18,6 +18,11 @@ jobs:
       - name: Remove CNAME for preview
         run: rm -f CNAME
 
+      - name: Update canonical URL for preview
+        run: |
+          # Remove canonical URL to prevent any SEO-related issues
+          find . -name "*.html" -exec sed -i 's|<link rel="canonical" href="https://www.vollkommenbraut.de[^"]*">||g' {} \;
+
       - name: Deploy to GitHub Pages Preview
         uses: rossjrw/pr-preview-action@v1
         with:
