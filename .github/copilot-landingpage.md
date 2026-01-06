@@ -104,12 +104,12 @@ Größen 46–60+ · exklusiv & ohne Druck
 
 > **Keine scharfen Kanten** – konsequent weich
 
-| Element | Border-Radius |
-|---------|---------------|
-| Buttons | `999px` (Pill-Form) |
-| Karten / Boxen | `12–20px` |
-| Bilder | `8–16px` |
-| Trennlinien | Keine – stattdessen Weißraum |
+| Element | Border-Radius | Tailwind |
+|---------|---------------|----------|
+| Buttons | `999px` (Pill) | `rounded-full` |
+| Karten / Boxen | `16–20px` | `rounded-2xl` |
+| Bilder | `12px` | `rounded-xl` |
+| Trennlinien | Keine | Weißraum stattdessen |
 
 ---
 
@@ -126,24 +126,46 @@ Größen 46–60+ · exklusiv & ohne Druck
 
 > Dezent und feminin – keine verspielten Effekte
 
-### Empfohlene Werte
+### Hero Animation
 
-| Eigenschaft | Wert |
-|-------------|------|
-| Animation | Fade + Y-Translation |
-| Opacity | `0 → 1` |
-| Transform | `translateY(12–24px) → 0` |
-| Dauer | `400–700ms` |
-| Easing | `ease-out` oder `cubic-bezier(0.22, 1, 0.36, 1)` |
-| Trigger | Einmal beim Sichtbarwerden |
-| Delay | `100–150ms` zwischen Elementen |
+| Eigenschaft | Wert | Tailwind |
+|-------------|------|----------|
+| Animation | Fade + Translate + Blur + Scale | `animate-hero-reveal` |
+| Opacity | `0 → 1` | — |
+| Transform | `translateY(24px) → 0`, `scale(0.97) → 1` | — |
+| Filter | `blur(8px) → 0` | — |
+| Dauer | `900ms` (Hero), `600ms` (Standard) | — |
+| Easing | `cubic-bezier(0.22, 1, 0.36, 1)` | — |
+
+### Hero Timeline
+
+| Element | Delay | Tailwind Class |
+|---------|-------|----------------|
+| Slider Image | 100ms | `[animation-delay:100ms]` |
+| "Dein Kleid." | 500ms | `[animation-delay:500ms]` |
+| "Deine Kurven." | 1500ms | `[animation-delay:1500ms]` |
+| "Dein Moment." | 2500ms | `[animation-delay:2500ms]` |
+| Subline | 3200ms | `[animation-delay:3200ms]` |
+| Meta | 3400ms | `[animation-delay:3400ms]` |
+| CTA | 3600ms | `[animation-delay:3600ms]` |
+
+### Standard Animationen
+
+| Eigenschaft | Wert | Tailwind |
+|-------------|------|----------|
+| Animation | Fade + Y-Translation | `animate-fade-in-up` |
+| Opacity | `0 → 1` | — |
+| Transform | `translateY(20px) → 0` | — |
+| Dauer | `600ms` | `duration-500` |
+| Trigger | Einmal beim Sichtbarwerden | Intersection Observer |
 
 ### Accessibility
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  /* Animationen reduzieren oder deaktivieren */
-}
+```html
+<!-- Tailwind motion-reduce variant -->
+<div class="animate-fade-in-up motion-reduce:animate-none">
+  ...
+</div>
 ```
 
 ---

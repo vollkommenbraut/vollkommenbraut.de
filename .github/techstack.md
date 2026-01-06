@@ -8,7 +8,7 @@
 
 | Fokus | Ziel |
 |-------|------|
-| JavaScript | Minimal |
+| JavaScript | Minimal (Alpine.js optional) |
 | Motion | Smooth & feminin |
 | Typography | Clean & lesbar |
 | Performance | Excellent Core Web Vitals |
@@ -30,7 +30,7 @@
 
 ### Tailwind CSS
 
-> Primary Styling Framework
+> Utility-first CSS Framework
 
 **Warum Tailwind:**
 
@@ -39,145 +39,202 @@
 | Utility-first | Keine schweren CSS-Dateien |
 | Spacing & Radii | Perfekte Kontrolle |
 | Mobile-first | Standard-Ansatz |
+| Purging | Nur genutzte Klassen im Build |
 
 **Verwendung:**
 
-- Spacing & Layout
-- Typography Scale
+- Spacing & Layout (`p-6`, `mt-8`, `gap-6`)
+- Typography Scale (`text-3xl`, `font-light`)
 - Soft Corners (`rounded-xl`, `rounded-2xl`, `rounded-full`)
-- Color System & Gradients
+- Color System (`bg-stone-50`, `text-gray-700`)
+- Transitions (`transition-all`, `duration-500`)
 
 **Custom Config:**
 
 ```js
 // tailwind.config.js
-{
-  borderRadius: { /* erweitert */ },
-  animation: { /* custom timing */ },
-  colors: { /* Brand Palette */ }
+module.exports = {
+  content: ['./**/*.html'],
+  theme: {
+    extend: {
+      fontFamily: {
+        'serif': ['GentiumPlusW', 'Georgia', 'serif'],
+        'sans': ['europa', 'sans-serif'],
+      },
+      colors: {
+        'brand': {
+          'teal': '#5ea8b7',
+          'warm': '#faf8f6',
+        }
+      },
+      borderRadius: {
+        'pill': '999px',
+      },
+      animation: {
+        'fade-in-up': 'fadeInUp 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'hero-reveal': 'heroReveal 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        heroReveal: {
+          '0%': { opacity: '0', transform: 'translateY(24px) scale(0.97)', filter: 'blur(8px)' },
+          '60%': { filter: 'blur(2px)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0)' },
+        },
+      },
+    },
+  },
+  plugins: [],
 }
 ```
 
-### Tailwind Typography Plugin
+**CDN für Entwicklung:**
 
-- Elegante Defaults für Text
-- Gute Lesbarkeit auf Mobile
-- Kontrollierte Line-Height
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+```
 
 ---
 
 ## Motion & Animation
 
-### CSS Transitions + Tailwind
+### Tailwind + Custom Keyframes
 
 > Primary Motion Layer
 
-| Pattern | Wert |
-|---------|------|
-| Animation | Fade + Translate |
-| Opacity | `0 → 1` |
-| Transform | `translateY(12–24px) → 0` |
-| Dauer | `400–700ms` |
-| Easing | `ease-out` oder `cubic-bezier(0.22, 1, 0.36, 1)` |
+| Pattern | Tailwind Class |
+|---------|----------------|
+| Fade Up | `animate-fade-in-up` |
+| Hero Text | `animate-hero-reveal` |
+| Transitions | `transition-all duration-500 ease-out` |
+| Hover | `hover:scale-[1.02] hover:shadow-lg` |
+
+**Hero Animation Timeline:**
+
+| Element | Delay Class |
+|---------|-------------|
+| Slider Image | `delay-100` |
+| "Dein Kleid." | `[animation-delay:500ms]` |
+| "Deine Kurven." | `[animation-delay:1500ms]` |
+| "Dein Moment." | `[animation-delay:2500ms]` |
+| Subline | `[animation-delay:3200ms]` |
+| Meta | `[animation-delay:3400ms]` |
+| CTA | `[animation-delay:3600ms]` |
 
 **Wichtig:**
 - Einmalige Entrance-Animationen
-- Respektiert `prefers-reduced-motion`
+- Respektiert `motion-reduce:` Variante
 - Kein Parallax
-
-### Alpine.js (Optional)
-
-> Nur für leichte Interaktivität
-
-| Use Case | |
-|----------|---|
-| Mobile Menu Toggle | ✓ |
-| Accordion / FAQ | ✓ |
-| CTA Interactions | ✓ |
-
-**Warum Alpine:**
-- Minimaler Footprint
-- Keine Build-Komplexität
-- Deklarativ & lesbar
 
 ---
 
 ## Fonts & Typography
 
-### Web Fonts
+### Adobe Fonts (Typekit) + Tailwind
 
-| Element | Stil |
-|---------|------|
-| Headlines | Elegant Serif |
-| Body | Humanistische Sans oder ruhige Serif |
+| Element | Font | Tailwind Class |
+|---------|------|----------------|
+| Headlines | GentiumPlusW | `font-serif` |
+| Body | GentiumPlusW | `font-serif` |
+| UI/Nav | Europa | `font-sans` |
 
 **Loading:**
 
-```css
-@font-face {
-  font-display: swap; /* Performance */
-}
+```html
+<link rel="stylesheet" href="https://use.typekit.net/qku0lip.css">
 ```
 
 ---
 
 ## Images
 
-### Native `<img>` + Moderne Formate
+### Native `<img>` + Tailwind
 
-| Format | Verwendung |
-|--------|------------|
-| WebP / AVIF | Wo möglich |
-| Corners | Soft rounded |
-| Style | Keine aggressive Crops |
+| Eigenschaft | Tailwind Class |
+|-------------|----------------|
+| Rounded | `rounded-xl`, `rounded-2xl` |
+| Object Fit | `object-cover` |
+| Lazy Load | `loading="lazy"` |
+| Aspect Ratio | `aspect-square`, `aspect-video` |
 
-**Performance:**
+---
+
+## JavaScript
+
+### Minimal Stack
+
+| Library | Zweck |
+|---------|-------|
+| Alpine.js (optional) | Interaktivität |
+| Vanilla JS | Intersection Observer |
+
+**Kein Build-Prozess für Entwicklung:**
+- Tailwind CDN
+- Direkte Script-Einbindung
+
+---
+
+## Tailwind Utility Patterns
+
+### Buttons (Pill)
 
 ```html
-<img loading="lazy" decoding="async" />
+<a class="inline-block px-8 py-4 bg-gray-900 text-white font-sans 
+          rounded-full transition-all duration-300 
+          hover:bg-gray-700 hover:-translate-y-0.5 hover:shadow-lg">
+  Deine Anprobe erleben
+</a>
+```
+
+### Benefit Cards
+
+```html
+<div class="bg-white p-6 rounded-2xl shadow-sm 
+            transition-all duration-300 
+            hover:-translate-y-1 hover:shadow-md">
+  <div class="text-2xl mb-3">✨</div>
+  <h3 class="font-sans font-medium text-gray-900 mb-2">Exklusive Anprobe</h3>
+  <p class="font-serif text-gray-600">Boutique nur für dich.</p>
+</div>
+```
+
+### Hero Text Line
+
+```html
+<span class="block opacity-0 animate-hero-reveal [animation-delay:500ms]">
+  Dein Kleid.
+</span>
 ```
 
 ---
 
 ## Performance & Delivery
 
-### Static Site
-
-> Kein Heavy Framework
+### Static Site + Tailwind
 
 | Eigenschaft | Wert |
 |-------------|------|
+| CSS | Tailwind CDN (Dev) / Purged Build (Prod) |
 | Framework | Keins (kein React/Vue) |
-| Hydration | Zero cost |
 | Load | Instant auf Mobile |
-| Core Web Vitals | Excellent |
 
-**Hosting:**
-- Static / CDN-based
-- Simple Deployment
-- Keine Runtime Dependencies
+**Production Build:**
+```bash
+npx tailwindcss -o styles.css --minify
+```
 
 ---
 
 ## Accessibility
 
-| Feature | Status |
-|---------|--------|
-| Semantic HTML | ✓ |
-| Contrast Ratios | ✓ |
-| Focus Styles | ✓ |
-| Reduced Motion | ✓ |
-| Touch Targets | ✓ |
-
----
-
-## Tooling (Optional)
-
-| Tool | Zweck |
-|------|-------|
-| Prettier | Code Formatting |
-| ESLint | JS Linting |
-| PostCSS | Tailwind Pipeline |
+| Feature | Tailwind Support |
+|---------|------------------|
+| Focus Styles | `focus:ring-2 focus:ring-offset-2` |
+| Reduced Motion | `motion-reduce:transition-none` |
+| Screen Reader | `sr-only` |
 
 ---
 
@@ -185,12 +242,12 @@
 
 > **Less technology. More feeling.**
 
-Dieser Stack vermeidet Komplexität für:
+Tailwind ermöglicht:
 
-- Ruhige User Experience
-- Emotionale Klarheit
-- Langfristige Wartbarkeit
-- Schnelle Iteration ohne Technical Debt
+- Schnelle Iteration
+- Konsistentes Design-System
+- Minimaler CSS-Output
+- Mobile-first by default
 
 ---
 
