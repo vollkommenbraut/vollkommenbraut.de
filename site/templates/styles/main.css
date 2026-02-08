@@ -236,7 +236,7 @@ h4 { font-family: europa, sans-serif; font-size: 1.3rem; font-weight: 300; font-
 
 
 
-#footer { width: 100%; margin-top: 8rem; padding: 3rem 0 2rem 0; background: #333333; color: white; font-size: 1.2rem; position: static; }
+#footer { width: 100%; margin-top: 8rem; padding: 3rem 0 2rem 0; background: #8b7355; color: white; font-size: 1.2rem; position: static; }
 #wrapper_bottom { width: 90%; margin: 0 auto; position: relative; }
 #wrapper_bottom_inner { }
 #infos_bottom_left { float: left; font-family: europa, sans-serif; font-weight: 300; font-style: normal; }
@@ -244,7 +244,7 @@ h4 { font-family: europa, sans-serif; font-size: 1.3rem; font-weight: 300; font-
 
 #wrapper_bottom_right { float: right; padding-top: 5.85rem; }
 #infos_bottom_right { }
-.social_wrapper { width: 30rem; float: right; border-bottom: 2px solid white; padding-bottom: 2rem;}
+.social_wrapper { width: 30rem; float: right; border-bottom: 2px solid rgba(255,255,255,0.5); padding-bottom: 2rem;}
 .social { float: right; }
 #infos_bottom_right div#social_insta { display: inline-block; width: 25px; height: 25px; margin-left: 10px; background: url("../../files_extra/social_media/instagram_weiss.png") no-repeat center; background-size: contain; }
 #infos_bottom_right div#social_facebook { display: inline-block; width: 25px; height: 25px; margin-left: 10px; background: url("../../files_extra/social_media/facebook_weiss.png") no-repeat center; background-size: contain; }
@@ -256,8 +256,8 @@ h4 { font-family: europa, sans-serif; font-size: 1.3rem; font-weight: 300; font-
 
 #footer li { list-style: none; } 
 #footer .nav { font-size: 1.1rem; letter-spacing: 1px; }
-#footer a { color: white; text-decoration: none; } 
-#footer a.hover_hellblau:hover { color: rgba(81,165,170,1.0); } 
+#footer a { color: white; text-decoration: none; }
+#footer a.hover_hellblau:hover { color: #f5f0eb; }
 #footer .nav a:hover { border-bottom: 2px solid white; padding-bottom: 4px }
 
 
