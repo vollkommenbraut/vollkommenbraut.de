@@ -23,3 +23,6 @@ Hauseigenes Atelier
 ** Instagram Feed einbinden**
 
 ** Mehr Fotos und Videos von echten Bräuten einbinden**
+
+
+** Kleider nicht nach Herstellern aufteilen, sondern nach Stilrichtungen (Boho, Vintage, Glamour etc.)**
