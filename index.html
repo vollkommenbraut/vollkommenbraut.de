@@ -406,14 +406,14 @@
 </div>
 
 <script>
-// Show fixed CTA after delay
+// Show fixed CTA after delay (after hero animations complete)
 document.addEventListener('DOMContentLoaded', function() {
 	const fixedCta = document.getElementById('fixed-cta');
 	if (fixedCta) {
 		setTimeout(() => {
 			fixedCta.classList.remove('opacity-0', 'translate-y-full');
 			fixedCta.classList.add('opacity-100', 'translate-y-0');
-		}, 1000);
+		}, 3600);
 	}
 });
 </script>
