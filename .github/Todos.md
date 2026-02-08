@@ -26,3 +26,5 @@ Hauseigenes Atelier
 
 
 ** Kleider nicht nach Herstellern aufteilen, sondern nach Stilrichtungen (Boho, Vintage, Glamour etc.)**
+
+** Mehr Slideshows mit Swipe Funktion für mobile Geräte. Bräute sollen nicht nach unten scrollen müssen, um alle Informationen zu erhalten, sondern durch Wischen durch die Slideshows navigieren können.**
