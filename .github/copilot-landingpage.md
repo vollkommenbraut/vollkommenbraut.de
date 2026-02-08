@@ -1,192 +1,196 @@
-# Copilot Briefing: Landingpage – vollkommen.Braut (Mobile First)
+# Copilot Briefing: Landingpage – vollkommen.Braut
+
+> **Mobile First** · Emotional · Feminin · Elegant
+
+---
 
 ## Ziel
 
-Überarbeite die Landingpage so, dass sie **in der Mobilansicht emotional, ruhig und hochwertig** wirkt.
-Die Seite soll sich **weich, feminin und elegant** anfühlen – visuell wie sprachlich.
+Eine Landingpage, die **emotional, ruhig und hochwertig** wirkt – visuell wie sprachlich.
 
-Fokus:
-
-* Plus Size Brautmode (Größen 46–60+)
-* Exklusive, private Anprobe
-* Wertschätzung, Ruhe, Vertrauen
-* Eine klare Conversion: **Anprobe buchen**
+| Fokus | |
+|-------|---|
+| Zielgruppe | Plus Size Brautmode (Größen 46–60+) |
+| Erlebnis | Exklusive, private Anprobe |
+| Gefühl | Wertschätzung, Ruhe, Vertrauen |
+| Conversion | **Anprobe buchen** |
 
 ---
 
 ## Grundprinzipien
 
-* **Emotion vor Information**
-* **Weiche Formen statt harter Kanten**
-* **Scannen statt Lesen**
-* **Weniger Elemente, mehr Wirkung**
-* Bewegung und Typografie unterstützen das Gefühl von Eleganz
+| Prinzip | Umsetzung |
+|---------|-----------|
+| Emotion vor Information | Gefühle zuerst, Details später |
+| Weiche Formen | Keine harten Kanten |
+| Scannen statt Lesen | Kurze Blöcke, klare Struktur |
+| Weniger = Mehr | Fokussierte Elemente |
 
 ---
 
-## Above the Fold (Mobile First)
+## Above the Fold
 
-* Funktioniert **ohne Scrollen**
-* Kurzer, emotionaler Hero-Text (2–4 Zeilen)
-* Eine Haupt-CTA
-* Keine sachlichen Hinweise direkt nach dem Hero
+> Muss **ohne Scrollen** funktionieren
 
-### Beispiel-Hero
+- Emotionaler Hero-Text (2–4 Zeilen)
+- Eine Haupt-CTA
+- Keine sachlichen Hinweise
 
-**Dein Kleid.
+### Hero-Beispiel
+
+```
+Dein Kleid.
 Deine Kurven.
-Dein Moment.**
+Dein Moment.
 
 Plus Size Brautmode in Hamburg
 Größen 46–60+ · exklusiv & ohne Druck
 
-**CTA:** „Deine Anprobe erleben“
+[ Deine Anprobe erleben ]
+```
 
 ---
 
-## Text & Content
+## Content-Regeln
 
-* Keine langen Absätze auf Mobile
-* Max. **2–3 Zeilen pro Block**
-* Inhalte als **emotionale Mini-Module**
-* Direkte Ansprache („du“, „dein Moment“)
+| Regel | Wert |
+|-------|------|
+| Max. Zeilen pro Block | 2–3 |
+| Ansprache | „du", „dein Moment" |
+| Format | Emotionale Mini-Module |
 
-### Scanbare Vorteile (Beispiel)
+### Scanbare Vorteile
 
-* ✨ **Exklusive Anprobe** – Boutique nur für dich
-* 🤍 **Für echte Kurven** – Größen 46–60+
-* 🪡 **Perfekt angepasst** – Änderungen im Haus
-* 💬 **Beratung mit Herz** – ehrlich & ohne Druck
+| Icon | Vorteil | Detail |
+|------|---------|--------|
+| ✨ | Exklusive Anprobe | Boutique nur für dich |
+| 🤍 | Für echte Kurven | Größen 46–60+ |
+| 🪡 | Perfekt angepasst | Änderungen im Haus |
+| 💬 | Beratung mit Herz | ehrlich & ohne Druck |
 
 ---
 
-## „Wir sind umgezogen“
+## Standort-Hinweis
 
-* **Nicht** als großer Textblock direkt nach dem Hero
-* Stark kürzen oder weiter unten platzieren
+> Nicht prominent nach dem Hero – weiter unten oder minimal
 
-### Mobile-Version
-
-📍 **Neuer Standort:** Valentinskamp 62 · 20355 Hamburg
+**Mobile-Version:**
+📍 Valentinskamp 62 · 20355 Hamburg
 
 ---
 
 ## Social Proof
 
-* Früh platzieren
-* Kurz, emotional, authentisch
-* Ersetzt erklärende Texte
+- Früh platzieren
+- Kurz, emotional, authentisch
 
-### Beispiel
-
-„Selten so viel Exklusivität erlebt.
-Man merkt, dass hier jede Braut mit Herz begleitet wird.“
-— Venja
+> „Selten so viel Exklusivität erlebt.
+> Man merkt, dass hier jede Braut mit Herz begleitet wird."
+> — Venja
 
 ---
 
-## Call-to-Action (CTA)
+## Call-to-Action
 
-* Eine Haupt-CTA auf der Seite
-* Einheitlicher Text & Stil
-* Emotional statt technisch
-
-**Empfohlen:**
-
-* „Deine Anprobe erleben“
-* „Deinen Moment buchen“
+| Eigenschaft | Empfehlung |
+|-------------|------------|
+| Anzahl | Eine Haupt-CTA |
+| Stil | Einheitlich, emotional |
+| Text | „Deine Anprobe erleben" oder „Deinen Moment buchen" |
 
 ---
 
-## Formen & Kanten (sehr wichtig)
+## Formen & Radien
 
-* **Keine scharfen Kanten**
-* Weiche, feminine Radien überall konsequent einsetzen
+> **Keine scharfen Kanten** – konsequent weich
 
-### Empfehlungen
-
-* Buttons: `border-radius: 999px` oder sehr weich (Pill-Form)
-* Karten / Boxen: `12–20px` (mobil)
-* Bilder: `8–16px` (mobil)
-* Keine harten Trennlinien → lieber Abstand & Weißraum
-
-Ziel:
-Alles soll sich **weich, einladend und wertschätzend** anfühlen.
+| Element | Border-Radius | Tailwind |
+|---------|---------------|----------|
+| Buttons | `999px` (Pill) | `rounded-full` |
+| Karten / Boxen | `16–20px` | `rounded-2xl` |
+| Bilder | `12px` | `rounded-xl` |
+| Trennlinien | Keine | Weißraum stattdessen |
 
 ---
 
 ## Bildsprache
 
-* Große, ruhige Bilder
-* Fokus auf:
-
-    * Emotion
-    * Stoffe & Details
-    * Spiegel- & Anprobemomente
-* Kein aggressives Cropping
-* Kein starkes Zoomen
-* Leichte Abrundungen an allen Bildern
+- Große, ruhige Bilder
+- Fokus: Emotion, Stoffe, Anprobemomente
+- Kein aggressives Cropping oder Zoomen
+- Leichte Abrundungen
 
 ---
 
-## Motion & Animation (Smooth & Elegant)
+## Motion & Animation
 
-* Bewegung ist **dezent und feminin**
-* Keine technischen oder verspielten Effekte
+> Dezent und feminin – keine verspielten Effekte
 
-### Empfohlene Animationen
+### Hero Animation
 
-* Fade + leichte Y-Translation
+| Eigenschaft | Wert | Tailwind |
+|-------------|------|----------|
+| Animation | Fade + Translate + Blur + Scale | `animate-hero-reveal` |
+| Opacity | `0 → 1` | — |
+| Transform | `translateY(24px) → 0`, `scale(0.97) → 1` | — |
+| Filter | `blur(8px) → 0` | — |
+| Dauer | `900ms` (Hero), `600ms` (Standard) | — |
+| Easing | `cubic-bezier(0.22, 1, 0.36, 1)` | — |
 
-    * `opacity: 0 → 1`
-    * `transform: translateY(12–24px) → 0`
-* Dauer: **400–700 ms**
-* Easing:
+### Hero Timeline
 
-    * `ease-out`
-    * oder `cubic-bezier(0.22, 1, 0.36, 1)`
-* Animationen nur **einmal beim Sichtbarwerden**
-* Inhalte nicht gleichzeitig animieren (kleine Delays: 100–150 ms)
+| Element | Delay | Tailwind Class |
+|---------|-------|----------------|
+| Slider Image | 100ms | `[animation-delay:100ms]` |
+| "Dein Kleid." | 500ms | `[animation-delay:500ms]` |
+| "Deine Kurven." | 1500ms | `[animation-delay:1500ms]` |
+| "Dein Moment." | 2500ms | `[animation-delay:2500ms]` |
+| Subline | 3200ms | `[animation-delay:3200ms]` |
+| Meta | 3400ms | `[animation-delay:3400ms]` |
+| CTA | 3600ms | `[animation-delay:3600ms]` |
+
+### Standard Animationen
+
+| Eigenschaft | Wert | Tailwind |
+|-------------|------|----------|
+| Animation | Fade + Y-Translation | `animate-fade-in-up` |
+| Opacity | `0 → 1` | — |
+| Transform | `translateY(20px) → 0` | — |
+| Dauer | `600ms` | `duration-500` |
+| Trigger | Einmal beim Sichtbarwerden | Intersection Observer |
 
 ### Accessibility
 
-* `prefers-reduced-motion` berücksichtigen
-* Animationen dann reduzieren oder deaktivieren
+```html
+<!-- Tailwind motion-reduce variant -->
+<div class="animate-fade-in-up motion-reduce:animate-none">
+  ...
+</div>
+```
 
 ---
 
-## Typografie (feminin & elegant)
+## Typografie
 
-* Schriftbild soll **weich, ruhig und hochwertig** wirken
-* Keine harten Groteskschriften
-* Gute Lesbarkeit auf Mobile hat Priorität
+> Weich · ruhig · hochwertig
 
-### Empfehlungen
-
-* Headline-Fonts:
-
-    * Serif oder Soft-Serif (modern, elegant)
-    * zarte Kontraste, keine extremen Schnitte
-* Fließtext:
-
-    * humanistische Sans oder sehr ruhige Serif
-* Großzügige Zeilenhöhe (`line-height: 1.4–1.6`)
-* Keine aggressiven Versalien-Blöcke auf Mobile
-
-Typografie soll sich anfühlen wie:
-
-> ruhig · feminin · wertschätzend · zeitlos
+| Element | Empfehlung |
+|---------|------------|
+| Headlines | Serif oder Soft-Serif (modern, elegant) |
+| Fließtext | Humanistische Sans oder ruhige Serif |
+| Line-Height | `1.4–1.6` |
+| Versalien | Sparsam auf Mobile |
 
 ---
 
-## Nicht tun
+## Don'ts
 
-* Keine scharfen Kanten
-* Keine Parallax-Effekte auf Mobile
-* Kein starkes Scaling (> 1.03)
-* Keine Bounce- oder Slide-In-Animationen
-* Keine wechselnden CTA-Texte ohne System
-* Keine Textwüsten
+- ❌ Scharfe Kanten
+- ❌ Parallax-Effekte auf Mobile
+- ❌ Starkes Scaling (> 1.03)
+- ❌ Bounce- oder Slide-In-Animationen
+- ❌ Wechselnde CTA-Texte
+- ❌ Textwüsten
 
 ---
 
@@ -194,23 +198,19 @@ Typografie soll sich anfühlen wie:
 
 Die Seite soll sich anfühlen wie:
 
-* ein ruhiger Atemzug
-* ein privater Moment
-* ein sanftes Öffnen eines Vorhangs
+- ein ruhiger Atemzug
+- ein privater Moment
+- ein sanftes Öffnen eines Vorhangs
 
-Die Braut soll nach wenigen Sekunden denken:
-
-> „Hier bin ich richtig.“
+> **„Hier bin ich richtig."**
 
 ---
 
-## Output-Erwartung
+## Output-Checklist
 
-Erzeuge:
-
-* mobile-optimierte Sections / Komponenten
-* reduzierte, emotionale Copy
-* weiche Formen & konsistente Radien
-* elegante Typografie
-* ruhige, feminine Motion-Patterns
-* klare CTA-Führung
+- [ ] Mobile-optimierte Sections
+- [ ] Reduzierte, emotionale Copy
+- [ ] Weiche Formen & konsistente Radien
+- [ ] Elegante Typografie
+- [ ] Ruhige Motion-Patterns
+- [ ] Klare CTA-Führung
