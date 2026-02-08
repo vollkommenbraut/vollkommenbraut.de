@@ -49,11 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	// CTA Bar nach Verzögerung einblenden
+	// Delay kann über data-cta-delay am Script-Tag oder window.ctaDelay gesetzt werden
 	const fixedCta = document.getElementById('fixed-cta');
 	if (fixedCta) {
+		// Delay ermitteln: 1. data-cta-delay am Script-Tag, 2. window.ctaDelay, 3. Default 1000ms
+		const scriptTag = document.querySelector('script[src*="fixed-cta.js"]');
+		const delay = scriptTag?.dataset.ctaDelay || window.ctaDelay || 1000;
+
 		setTimeout(() => {
 			fixedCta.classList.remove('opacity-0', 'translate-y-full');
 			fixedCta.classList.add('opacity-100', 'translate-y-0');
-		}, 1000);
+		}, delay);
 	}
 });
