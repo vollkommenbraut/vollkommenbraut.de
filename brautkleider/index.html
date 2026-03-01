@@ -3,11 +3,8 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <title>BRAUTKLEIDER | Vollkommen.Braut</title>
-    <meta name="description" content="Wir verkaufen Brautkleider der Marken Amelie Bridal, Romantica, Très Chic, Afrodyta, Lasabina, Pronovias und Bridalstar.
-
-Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und haben aus wundervollen Kollektionen namhafter deutscher Designer und international bekannter Brautmode-Labels die schönsten XL-Hochzeitskleider&nbsp;für Dich ausgewählt.">
+    <meta name="description" content="Traumhafte Curvy Brautkleider in Größe 44 bis 60+. Entdecke verschiedene Stilrichtungen – Prinzessin, A-Linie, Mermaid. Exklusive Anprobe nur für dich.">
 
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://www.vollkommenbraut.de/brautkleider/">
@@ -16,28 +13,33 @@ Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vollkommen.Braut">
     <meta property="og:title" content="BRAUTKLEIDER | Vollkommen.Braut">
-    <meta property="og:description" content="Wir verkaufen Brautkleider der Marken Amelie Bridal, Romantica, Très Chic, Afrodyta, Lasabina, Pronovias und Bridalstar.
-
-Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und haben aus wundervollen Kollektionen namhafter deutscher Designer und international bekannter Brautmode-Labels die schönsten XL-Hochzeitskleider&nbsp;für Dich ausgewählt.">
+    <meta property="og:description" content="Traumhafte Curvy Brautkleider in Größe 44 bis 60+. Entdecke verschiedene Stilrichtungen – Prinzessin, A-Linie, Mermaid.">
     <meta property="og:url" content="https://www.vollkommenbraut.de/brautkleider/">
     <meta property="og:image" content="https://www.vollkommenbraut.de/site/assets/files/1047/img_2334_quadrat-1.jpg">
 
-
     <link rel="stylesheet" href="https://use.typekit.net/qku0lip.css">
-    <link rel="stylesheet" type="text/css" href="../site/templates/styles/main.css?v=20260103b">
-    <!-- Cookie Consent -->
+    <link rel="stylesheet" type="text/css" href="../site/templates/styles/main.css?v=20260208">
     <link rel="stylesheet" type="text/css" href="../cookie-consent.css">
     <script src="../cookie-consent.js"></script>
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-brown': '#8b7355',
+                        'brand-warm': '#f5f0eb',
+                        'brand-border': '#c4b4a0',
+                    }
+                }
+            }
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../site/templates/scripts/main.js"></script>
-    <script src="../site/templates/scripts/responsiveslides.min.js"></script>
     <script src="../site/templates/scripts/fancybox-master/dist/jquery.fancybox.js"></script>
-
-    <!-- Fixed CTA Bar -->
     <script src="../fixed-cta.js"></script>
 
     <link rel="stylesheet" href="../site/templates/scripts/fancybox-master/dist/jquery.fancybox.css" type="text/css" media="screen">
@@ -48,13 +50,99 @@ Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und
     <link rel="shortcut icon" href="../site/templates/styles/fav/favicon.ico">
     <link rel="manifest" href="../site/templates/styles/fav/site.webmanifest">
 
+    <style>
+        /* Brand Slideshow Styles */
+        .brand-section {
+            padding: 3rem 0;
+        }
+        .brand-section:nth-child(even) {
+            background: #f5f0eb;
+        }
+        .brand-title {
+            font-size: 1.5rem;
+            letter-spacing: 0.15em;
+            color: #8b7355;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 30px rgba(139, 115, 85, 0.15);
+        }
+        .slideshow-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+        .slideshow-track::-webkit-scrollbar {
+            display: none;
+        }
+        .slide-item {
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: start;
+        }
+        .slide-item img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            cursor: pointer;
+            display: block;
+        }
+        /* Pagination Dots - auf dem Foto */
+        .slideshow-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+        }
+        .slideshow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .slideshow-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+        .slideshow-dot:hover {
+            background: #fff;
+        }
+        /* Hero animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        [data-delay="200"] { animation-delay: 200ms; }
+        [data-delay="400"] { animation-delay: 400ms; }
+        [data-delay="600"] { animation-delay: 600ms; }
+    </style>
 </head>
-
 
 <body class="body_home">
 
 <div id="header">
-
     <div id="header_fixed">
         <div id="wrapper_header_fixed">
             <div id="header_left">
@@ -62,101 +150,271 @@ Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und
             </div>
             <div id="header_right">
                 <div id="navigation_top_right" class="nav">
-
-                    <div id="wrap_the_lis"><li class="level-1 current dropdown"><a href="./"><span>BRAUTKLEIDER</span></a><div class="dropdown-content"><ul><li class="level-2"><a href="amelie-bridal/"><span>AMELIE BRIDAL</span></a></li><li class="level-2"><a href="romantica/"><span>ROMANTICA</span></a></li><li class="level-2"><a href="tres-chic/"><span>TRÈS CHIC</span></a></li><li class="level-2"><a href="pronovias/"><span>PRONOVIAS</span></a></li><li class="level-2"><a href="afrodyta/"><span>AFRODYTA</span></a></li><li class="level-2"><a href="bridal-star/"><span>BRIDALSTAR</span></a></li><li class="level-2"><a href="lasabina/"><span>LASABINA</span></a></li></ul></div></li><li class="level-1"><a href="../accessoires/"><span>ACCESSOIRES</span></a></li><li class="level-1"><a href="../termine/"><span>TERMINE</span></a></li><li class="level-1"><a href="../curvy-brides/"><span>CURVY BRIDES</span></a></li><li class="level-1"><a href="../uber-uns/"><span>ÜBER MICH</span></a></li><li class="level-1"><a href="../kontakt/"><span>KONTAKT</span></a></li><li class="level-1"><a href="../faq/"><span>FAQ</span></a></li></div>
+                    <ul id="wrap_the_lis"><li class="level-1 current"><a href="./"><span>BRAUTKLEIDER</span></a></li><li class="level-1"><a href="../accessoires/"><span>ACCESSOIRES</span></a></li><li class="level-1"><a href="../termine/"><span>TERMINE</span></a></li><li class="level-1"><a href="../curvy-brides/"><span>CURVY BRIDES</span></a></li><li class="level-1"><a href="../uber-uns/"><span>ÜBER MICH</span></a></li><li class="level-1"><a href="../kontakt/"><span>KONTAKT</span></a></li><li class="level-1"><a href="../faq/"><span>FAQ</span></a></li></ul>
                 </div>
                 <div id="buchen_top_right" class="nav"> <a href="https://connect.shore.com/bookings/vollkommen-braut-the-curvy-bridal-boutique/services?locale=de&amp;origin=standalone" target="_blank" onclick="gtag('event', 'conversion', {'send_to': 'AW-867464507/fnGdCK3GxpIDELvq0Z0D'});"> Jetzt buchen!</a></div>
             </div>
-
             <div class="clear"></div>
         </div>
-
         <div id="wrapper_hamburger_navi_top">
             <div class="hamburger"></div>
         </div>
         <div id="wrapper_hamburger_navi_top_overlay">
             <div id="navi_top_hamburger" class="navi_top_hamburger mobile nav">
-                <div id="wrap_the_lis"><li class="level-1 current dropdown"><a href="./"><span>BRAUTKLEIDER</span></a><div class="dropdown-content"><ul><li class="level-2"><a href="amelie-bridal/"><span>AMELIE BRIDAL</span></a></li><li class="level-2"><a href="romantica/"><span>ROMANTICA</span></a></li><li class="level-2"><a href="tres-chic/"><span>TRÈS CHIC</span></a></li><li class="level-2"><a href="pronovias/"><span>PRONOVIAS</span></a></li><li class="level-2"><a href="afrodyta/"><span>AFRODYTA</span></a></li><li class="level-2"><a href="bridal-star/"><span>BRIDALSTAR</span></a></li><li class="level-2"><a href="lasabina/"><span>LASABINA</span></a></li></ul></div></li><li class="level-1"><a href="../accessoires/"><span>ACCESSOIRES</span></a></li><li class="level-1"><a href="../termine/"><span>TERMINE</span></a></li><li class="level-1"><a href="../curvy-brides/"><span>CURVY BRIDES</span></a></li><li class="level-1"><a href="../uber-uns/"><span>ÜBER MICH</span></a></li><li class="level-1"><a href="../kontakt/"><span>KONTAKT</span></a></li><li class="level-1"><a href="../faq/"><span>FAQ</span></a></li></div>			</div>
+                <ul id="wrap_the_lis_mobile"><li class="level-1 current"><a href="./"><span>BRAUTKLEIDER</span></a></li><li class="level-1"><a href="../accessoires/"><span>ACCESSOIRES</span></a></li><li class="level-1"><a href="../termine/"><span>TERMINE</span></a></li><li class="level-1"><a href="../curvy-brides/"><span>CURVY BRIDES</span></a></li><li class="level-1"><a href="../uber-uns/"><span>ÜBER MICH</span></a></li><li class="level-1"><a href="../kontakt/"><span>KONTAKT</span></a></li><li class="level-1"><a href="../faq/"><span>FAQ</span></a></li></ul>
+            </div>
         </div>
-
     </div>
 </div>
 
 <div id="content_wrapper">
-
-
     <div id="content">
 
-
-        <div class="wrappy_no"><div class="wrapper_bild volles_format quer_stumpf"><div class="bild bild_teaser"><img src="../site/assets/files/1153/img_2329_16-9.jpg" alt=""></div><div class="text_teaser">BRAUTKLEIDER</div></div></div><div class="wrappy weiss">
-        <div class="volle_breite">
-            <div class="zweispaltig links"><h2>TRAUMHAFTE CURVY BRAUTMODE</h2><div class="text"><p>Ob Prinzessin, A-Linie oder Mermaid – bei uns findest Du verschiedene Stilrichtungen in Größe 44 bis 60+.</p>
-
-                <p>Das Beste: Du hast den Raum nur für dich allein!</p></div>
+        <!-- Hero Section -->
+        <section class="relative pt-[180px] pb-12 px-6 text-center bg-gradient-to-b from-white to-brand-warm">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-6 opacity-0 animate-fade-in-up" data-delay="200">
+                    Finde dein Traumkleid
+                </h1>
+                <p class="text-lg md:text-xl text-brand-brown font-light mb-4 opacity-0 animate-fade-in-up" data-delay="400">
+                    Prinzessin · A-Linie · Mermaid · Boho
+                </p>
+                <p class="text-base text-gray-600 mb-8 opacity-0 animate-fade-in-up" data-delay="600">
+                    Größe 44–60+ · Alle Kleider zum Anprobieren · Nur für dich reserviert
+                </p>
             </div>
-            <div class="zweispaltig rechts"><div class="ueberschrift_no"></div><div class="text"><p><strong><em>Sei Du selbst, sei vollkommen, in einem Brautkleid von Vollkommen.Braut.<br>
-                    Wir freuen uns auf Dich!</em></strong></p></div>
+        </section>
+
+        <!-- AMELIE BRIDAL -->
+        <section class="brand-section">
+            <h2 class="brand-title">AMELIE BRIDAL</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1072/35010-_3_bearb_hf.jpg" data-fancybox="amelie" data-caption="Amelie Bridal">
+                            <img src="../site/assets/files/1072/35010-_3_bearb_hf.jpg" alt="Brautkleid Amelie Bridal" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1072/35002-_3_bearb_hf.jpg" data-fancybox="amelie" data-caption="Amelie Bridal">
+                            <img src="../site/assets/files/1072/35002-_3_bearb_hf.jpg" alt="Brautkleid Amelie Bridal" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1072/35030-_3_bearb_hf.jpg" data-fancybox="amelie" data-caption="Amelie Bridal">
+                            <img src="../site/assets/files/1072/35030-_3_bearb_hf.jpg" alt="Brautkleid Amelie Bridal" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1072/35012-_3_bearb_hf.jpg" data-fancybox="amelie" data-caption="Amelie Bridal">
+                            <img src="../site/assets/files/1072/35012-_3_bearb_hf.jpg" alt="Brautkleid Amelie Bridal" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
             </div>
-        </div>
-        <div class="clear"></div>
-    </div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="amelie-bridal/">
-                <div class="text">AMELIE BRIDAL<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1072/35010-_3_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1072/35010-_3_bearb_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1072/35002-_3_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1072/35002-_3_bearb_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1072/35030-_3_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1072/35030-_3_bearb_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1072/35012-_3_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1072/35012-_3_bearb_hf.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="romantica/">
-                <div class="text">ROMANTICA<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1138/img_3138_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1138/img_3138_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1138/img_6459_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1138/img_6459_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1138/img_6442_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1138/img_6442_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1138/img_3195_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1138/img_3195_hf-1.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="tres-chic/">
-                <div class="text">TRÈS CHIC<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1142/me-26313-back-complete----srgb_bearb_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1142/me-26313-back-complete----srgb_bearb_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1142/photo-2025-04-14-08-57-26_bearb.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1142/photo-2025-04-14-08-57-26_bearb.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1142/me-26310-front-complete----srgb_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1142/me-26310-front-complete----srgb_bearb_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1142/me-26308-front----srgb_bearb_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1142/me-26308-front----srgb_bearb_hf.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="pronovias/">
-                <div class="text">PRONOVIAS<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-bionda_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-bionda_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-players-hamburg_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-players-hamburg_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-stacy-hamburg_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-stacy-hamburg_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-tiga_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-tiga_hf-1.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="afrodyta/">
-                <div class="text">AFRODYTA<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1113/47_perugia-xl_4_hf-2.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1113/47_perugia-xl_4_hf-2.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1113/14_bage-xl_4_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1113/14_bage-xl_4_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1113/35_miramonti_2_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1113/35_miramonti_2_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1113/20_bolzano_2_hf-2.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1113/20_bolzano_2_hf-2.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="bridal-star/">
-                <div class="text">BRIDALSTAR<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1114/jules-front_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1114/jules-front_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1114/img_6605_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1114/img_6605_hf-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1114/vollkommenbraut-bridalstar-hielkje-plus-size-brautkleid-curvy_1_hf.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1114/vollkommenbraut-bridalstar-hielkje-plus-size-brautkleid-curvy_1_hf.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1114/imperia-front-2_hf-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1114/imperia-front-2_hf-1.jpg" class=""></a></div></div></div></div><div class="wrappy trennbereich">
-    </div><div class="wrappy">
-        <div class="linkfeld volle_breite linie">
-            <a href="lasabina/">
-                <div class="text">LASABINA<div class="pfeil"></div></div>
-            </a>
-        </div>
-    </div><div class="wrappy"><div class="vier_bilder_wrapper"><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1108/remi-plus-size-wedding-dress-3_bearb-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1108/remi-plus-size-wedding-dress-3_bearb-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1108/lia-plus-size-wedding-dress-2-2_bearb-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1108/lia-plus-size-wedding-dress-2-2_bearb-1.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1108/magnolia-plus-size-wedding-dress-3_bearb.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1108/magnolia-plus-size-wedding-dress-3_bearb.jpg" class=""></a></div></div><div class="wrapper_bild vierspaltig"><div class="bild rounded"><a href="../site/assets/files/1108/millie-plus-size-wedding-dress-5-2_bearb-1.jpg" data-fancybox="gallery" title=""><img src="../site/assets/files/1108/millie-plus-size-wedding-dress-5-2_bearb-1.jpg" class=""></a></div></div></div></div>
+        </section>
+
+        <!-- ROMANTICA -->
+        <section class="brand-section">
+            <h2 class="brand-title">ROMANTICA</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1138/img_3138_hf-1.jpg" data-fancybox="romantica" data-caption="Romantica">
+                            <img src="../site/assets/files/1138/img_3138_hf-1.jpg" alt="Brautkleid Romantica" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1138/img_6459_hf-1.jpg" data-fancybox="romantica" data-caption="Romantica">
+                            <img src="../site/assets/files/1138/img_6459_hf-1.jpg" alt="Brautkleid Romantica" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1138/img_6442_hf-1.jpg" data-fancybox="romantica" data-caption="Romantica">
+                            <img src="../site/assets/files/1138/img_6442_hf-1.jpg" alt="Brautkleid Romantica" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1138/img_3195_hf-1.jpg" data-fancybox="romantica" data-caption="Romantica">
+                            <img src="../site/assets/files/1138/img_3195_hf-1.jpg" alt="Brautkleid Romantica" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- TRÈS CHIC -->
+        <section class="brand-section">
+            <h2 class="brand-title">TRÈS CHIC</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1142/me-26313-back-complete----srgb_bearb_hf-1.jpg" data-fancybox="treschic" data-caption="Très Chic">
+                            <img src="../site/assets/files/1142/me-26313-back-complete----srgb_bearb_hf-1.jpg" alt="Brautkleid Très Chic" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1142/photo-2025-04-14-08-57-26_bearb.jpg" data-fancybox="treschic" data-caption="Très Chic">
+                            <img src="../site/assets/files/1142/photo-2025-04-14-08-57-26_bearb.jpg" alt="Brautkleid Très Chic" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1142/me-26310-front-complete----srgb_bearb_hf.jpg" data-fancybox="treschic" data-caption="Très Chic">
+                            <img src="../site/assets/files/1142/me-26310-front-complete----srgb_bearb_hf.jpg" alt="Brautkleid Très Chic" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1142/me-26308-front----srgb_bearb_hf.jpg" data-fancybox="treschic" data-caption="Très Chic">
+                            <img src="../site/assets/files/1142/me-26308-front----srgb_bearb_hf.jpg" alt="Brautkleid Très Chic" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- PRONOVIAS -->
+        <section class="brand-section">
+            <h2 class="brand-title">PRONOVIAS</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-bionda_hf-1.jpg" data-fancybox="pronovias" data-caption="Pronovias">
+                            <img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-bionda_hf-1.jpg" alt="Brautkleid Pronovias" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-players-hamburg_hf-1.jpg" data-fancybox="pronovias" data-caption="Pronovias">
+                            <img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-players-hamburg_hf-1.jpg" alt="Brautkleid Pronovias" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-stacy-hamburg_hf-1.jpg" data-fancybox="pronovias" data-caption="Pronovias">
+                            <img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-stacy-hamburg_hf-1.jpg" alt="Brautkleid Pronovias" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-tiga_hf-1.jpg" data-fancybox="pronovias" data-caption="Pronovias">
+                            <img src="../site/assets/files/1148/vollkommenbraut-curvy-brautkleid-plus-size-pronovias-tiga_hf-1.jpg" alt="Brautkleid Pronovias" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- AFRODYTA -->
+        <section class="brand-section">
+            <h2 class="brand-title">AFRODYTA</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1113/47_perugia-xl_4_hf-2.jpg" data-fancybox="afrodyta" data-caption="Afrodyta">
+                            <img src="../site/assets/files/1113/47_perugia-xl_4_hf-2.jpg" alt="Brautkleid Afrodyta" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1113/14_bage-xl_4_hf.jpg" data-fancybox="afrodyta" data-caption="Afrodyta">
+                            <img src="../site/assets/files/1113/14_bage-xl_4_hf.jpg" alt="Brautkleid Afrodyta" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1113/35_miramonti_2_hf-1.jpg" data-fancybox="afrodyta" data-caption="Afrodyta">
+                            <img src="../site/assets/files/1113/35_miramonti_2_hf-1.jpg" alt="Brautkleid Afrodyta" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1113/20_bolzano_2_hf-2.jpg" data-fancybox="afrodyta" data-caption="Afrodyta">
+                            <img src="../site/assets/files/1113/20_bolzano_2_hf-2.jpg" alt="Brautkleid Afrodyta" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- BRIDALSTAR -->
+        <section class="brand-section">
+            <h2 class="brand-title">BRIDALSTAR</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1114/jules-front_hf.jpg" data-fancybox="bridalstar" data-caption="Bridalstar">
+                            <img src="../site/assets/files/1114/jules-front_hf.jpg" alt="Brautkleid Bridalstar" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1114/img_6605_hf-1.jpg" data-fancybox="bridalstar" data-caption="Bridalstar">
+                            <img src="../site/assets/files/1114/img_6605_hf-1.jpg" alt="Brautkleid Bridalstar" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1114/vollkommenbraut-bridalstar-hielkje-plus-size-brautkleid-curvy_1_hf.jpg" data-fancybox="bridalstar" data-caption="Bridalstar">
+                            <img src="../site/assets/files/1114/vollkommenbraut-bridalstar-hielkje-plus-size-brautkleid-curvy_1_hf.jpg" alt="Brautkleid Bridalstar" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1114/imperia-front-2_hf-1.jpg" data-fancybox="bridalstar" data-caption="Bridalstar">
+                            <img src="../site/assets/files/1114/imperia-front-2_hf-1.jpg" alt="Brautkleid Bridalstar" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- LASABINA -->
+        <section class="brand-section">
+            <h2 class="brand-title">LASABINA</h2>
+            <div class="slideshow-container" data-slideshow>
+                <div class="slideshow-track">
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1108/remi-plus-size-wedding-dress-3_bearb-1.jpg" data-fancybox="lasabina" data-caption="Lasabina">
+                            <img src="../site/assets/files/1108/remi-plus-size-wedding-dress-3_bearb-1.jpg" alt="Brautkleid Lasabina" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1108/lia-plus-size-wedding-dress-2-2_bearb-1.jpg" data-fancybox="lasabina" data-caption="Lasabina">
+                            <img src="../site/assets/files/1108/lia-plus-size-wedding-dress-2-2_bearb-1.jpg" alt="Brautkleid Lasabina" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1108/magnolia-plus-size-wedding-dress-3_bearb.jpg" data-fancybox="lasabina" data-caption="Lasabina">
+                            <img src="../site/assets/files/1108/magnolia-plus-size-wedding-dress-3_bearb.jpg" alt="Brautkleid Lasabina" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="../site/assets/files/1108/millie-plus-size-wedding-dress-5-2_bearb-1.jpg" data-fancybox="lasabina" data-caption="Lasabina">
+                            <img src="../site/assets/files/1108/millie-plus-size-wedding-dress-5-2_bearb-1.jpg" alt="Brautkleid Lasabina" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div class="slideshow-dots"></div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 px-6 text-center bg-white">
+            <div class="max-w-2xl mx-auto">
+                <p class="text-xl md:text-2xl text-gray-700 font-light italic mb-8">
+                    „Sei Du selbst, sei vollkommen."
+                </p>
+                <a href="https://connect.shore.com/bookings/vollkommen-braut-the-curvy-bridal-boutique/services?locale=de&origin=standalone"
+                   target="_blank"
+                   class="inline-flex items-center gap-3 px-8 py-4 bg-brand-brown text-white rounded-full text-lg font-light tracking-wide transition-all duration-300 hover:bg-[#6b5a45] hover:shadow-lg"
+                   onclick="gtag('event', 'conversion', {'send_to': 'AW-867464507/fnGdCK3GxpIDELvq0Z0D'});">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+                        <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/>
+                    </svg>
+                    Termin vereinbaren
+                </a>
+            </div>
+        </section>
 
     </div>
-
-
-
 </div>
-
-
 
 <div id="footer">
     <div id="wrapper_bottom">
@@ -167,16 +425,16 @@ Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und
                 <br>20355 Hamburg
                 <br>Deutschland
                 <br><br>0179 1398429
-                <br><br><a href="mailto:moin@vollkommenbraut.de" alt="E-Mail-Kontakt vollkommen.Braut" class="hover_hellblau">moin@vollkommenbraut.de</a>
+                <br><br><a href="mailto:moin@vollkommenbraut.de" class="hover_hellblau">moin@vollkommenbraut.de</a>
             </div>
 
             <div id="wrapper_bottom_right">
                 <div id="infos_bottom_right">
                     <div class="social_wrapper">
                         <div class="social">
-                            <a href="https://www.instagram.com/vollkommenbraut/" alt="vollkommen.Braut auf Instagram" aria-label="vollkommen.Braut auf Instagram" target="_blank"><div id="social_insta"></div></a>
-                            <a href="https://www.facebook.com/vollkommenbraut/?locale=de_DE" alt="vollkommen.Braut auf Facebook" aria-label="vollkommen.Braut auf Facebook" target="_blank"><div id="social_facebook"></div></a>
-                            <a href="https://www.pinterest.de/vollkommenbraut/?eq=vollkommen.braut.&amp;etslf=12086" alt="vollkommen.Braut auf Pinterest" aria-label="vollkommen.Braut auf Pinterest" target="_blank"><div id="social_pinterest"></div></a>
+                            <a href="https://www.instagram.com/vollkommenbraut/" aria-label="vollkommen.Braut auf Instagram" target="_blank"><div id="social_insta"></div></a>
+                            <a href="https://www.facebook.com/vollkommenbraut/?locale=de_DE" aria-label="vollkommen.Braut auf Facebook" target="_blank"><div id="social_facebook"></div></a>
+                            <a href="https://www.pinterest.de/vollkommenbraut/?eq=vollkommen.braut.&amp;etslf=12086" aria-label="vollkommen.Braut auf Pinterest" target="_blank"><div id="social_pinterest"></div></a>
                         </div>
                     </div>
                 </div>
@@ -191,5 +449,84 @@ Wir sind die&nbsp;Boutique für Curvy Bridal Fashion (ab Größe 44 bis 60+) und
         </div>
     </div>
 </div>
+
+<script>
+// Auto-Sliding Slideshow mit Pagination Dots
+document.addEventListener('DOMContentLoaded', function() {
+    const slideshows = document.querySelectorAll('[data-slideshow]');
+
+    slideshows.forEach((slideshow, index) => {
+        const track = slideshow.querySelector('.slideshow-track');
+        const slides = slideshow.querySelectorAll('.slide-item');
+        const dotsContainer = slideshow.querySelector('.slideshow-dots');
+
+        if (!track || slides.length === 0) return;
+
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        // Dots erstellen
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slideshow-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slideshow-dot');
+
+        function updateDots() {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            const slideWidth = slides[0].offsetWidth; // 100% width, no gap
+            track.scrollTo({
+                left: slideWidth * currentSlide,
+                behavior: 'smooth'
+            });
+            updateDots();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function startAutoSlide() {
+            // Jede Slideshow hat einen leicht unterschiedlichen Intervall (3-5 Sekunden)
+            const interval = 3500 + (index * 300);
+            autoSlideInterval = setInterval(nextSlide, interval);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Scroll-Event um Dots zu aktualisieren wenn manuell gescrollt wird
+        track.addEventListener('scroll', () => {
+            const slideWidth = slides[0].offsetWidth;
+            const newSlide = Math.round(track.scrollLeft / slideWidth);
+            if (newSlide !== currentSlide && newSlide >= 0 && newSlide < slides.length) {
+                currentSlide = newSlide;
+                updateDots();
+            }
+        });
+
+        // Pause bei Hover
+        slideshow.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slideshow.addEventListener('mouseleave', startAutoSlide);
+
+        // Auto-Slide starten mit Verzögerung basierend auf Index
+        setTimeout(startAutoSlide, 1000 + (index * 500));
+    });
+});
+</script>
 
 </body></html>
