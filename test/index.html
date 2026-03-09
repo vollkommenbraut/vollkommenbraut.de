@@ -49,11 +49,17 @@
 			position: absolute;
 			pointer-events: none;
 			filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+			user-select: none;
+			-webkit-user-select: none;
 		}
 		.window-display .sticker img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			pointer-events: none;
+			-webkit-user-drag: none;
+			user-select: none;
+			-webkit-user-select: none;
 		}
 
 		/* Edit-mode: make stickers draggable */
@@ -61,6 +67,9 @@
 			pointer-events: auto;
 			cursor: move;
 			outline: 2px dashed rgba(94,168,183,0.6);
+		}
+		body.edit-mode .window-display .sticker img {
+			pointer-events: none;
 		}
 
 		/* Controls bar */
@@ -93,6 +102,11 @@
 		}
 		.controls-bar button:hover { background: #4d95a3; }
 		.controls-bar .info { color: #888; margin-left: auto; }
+		#resizeButtons {
+			display: none;
+			gap: 6px;
+			align-items: center;
+		}
 
 		.photo-label {
 			position: absolute;
@@ -249,6 +263,10 @@
 <div class="controls-bar" id="controlsBar">
 	<button id="toggleEdit">✏️ Bearbeiten</button>
 	<span id="currentInfo" style="color:#888;">Klicke „Bearbeiten" und ziehe die Sticker auf die Fenster.</span>
+	<span id="resizeButtons" style="display:none;">
+		<button id="shrinkBtn">➖ Kleiner</button>
+		<button id="growBtn">➕ Größer</button>
+	</span>
 	<span class="info" id="positionReadout"></span>
 	<button id="exportBtn" style="display:none;">📋 Positionen kopieren</button>
 </div>
@@ -257,12 +275,19 @@
 (function() {
 	const toggleBtn = document.getElementById('toggleEdit');
 	const exportBtn = document.getElementById('exportBtn');
+	const resizeButtons = document.getElementById('resizeButtons');
+	const shrinkBtn = document.getElementById('shrinkBtn');
+	const growBtn = document.getElementById('growBtn');
 	const info = document.getElementById('currentInfo');
 	const readout = document.getElementById('positionReadout');
 	let editMode = false;
 	let activeSticker = null;
+	let lastTouchedSticker = null;
 	let dragStart = { x: 0, y: 0 };
 	let stickerStart = { top: 0, left: 0 };
+	let pinchStartDist = 0;
+	let pinchStartW = 0;
+	let pinchStartH = 0;
 
 	// Load saved positions from localStorage
 	function loadPositions() {
@@ -310,10 +335,14 @@
 		document.body.classList.toggle('edit-mode', editMode);
 		toggleBtn.textContent = editMode ? '✅ Fertig' : '✏️ Bearbeiten';
 		exportBtn.style.display = editMode ? 'inline-block' : 'none';
+		resizeButtons.style.display = editMode ? 'inline-flex' : 'none';
 		info.textContent = editMode
-			? 'Ziehe die Sticker auf die Fenster. Scrollrad = Größe ändern.'
+			? 'Ziehen = Verschieben · Scrollrad / Pinch / ➕➖ = Größe'
 			: 'Positionen gespeichert.';
-		if (!editMode) savePositions();
+		if (!editMode) {
+			savePositions();
+			lastTouchedSticker = null;
+		}
 	});
 
 	exportBtn.addEventListener('click', () => {
@@ -334,40 +363,129 @@
 		});
 	});
 
-	// Drag handling
-	document.addEventListener('mousedown', (e) => {
+	// Prevent native image drag on all sticker images
+	document.querySelectorAll('.sticker img').forEach(img => {
+		img.draggable = false;
+		img.addEventListener('dragstart', (e) => e.preventDefault());
+	});
+
+	// Prevent native drag on sticker divs too
+	document.querySelectorAll('.sticker').forEach(s => {
+		s.addEventListener('dragstart', (e) => e.preventDefault());
+	});
+
+	// Helper: get clientX/Y from mouse or touch event
+	function getXY(e) {
+		if (e.touches && e.touches.length > 0) {
+			return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+		}
+		return { x: e.clientX, y: e.clientY };
+	}
+
+	// Helper: distance between two touch points
+	function getTouchDist(e) {
+		const t = e.touches;
+		const dx = t[0].clientX - t[1].clientX;
+		const dy = t[0].clientY - t[1].clientY;
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	// Start drag (mouse + touch)
+	function onDragStart(e) {
 		if (!editMode) return;
 		const sticker = e.target.closest('.sticker');
 		if (!sticker) return;
 		e.preventDefault();
+		e.stopPropagation();
+
+		// Two-finger touch = pinch to resize
+		if (e.touches && e.touches.length === 2) {
+			activeSticker = null;
+			lastTouchedSticker = sticker;
+			pinchStartDist = getTouchDist(e);
+			pinchStartW = parseFloat(sticker.style.width) || 30;
+			pinchStartH = parseFloat(sticker.style.height) || 55;
+			updateReadout(sticker);
+			return;
+		}
+
 		activeSticker = sticker;
-		const wd = sticker.closest('.window-display');
-		const rect = wd.getBoundingClientRect();
-		dragStart = { x: e.clientX, y: e.clientY };
+		lastTouchedSticker = sticker;
+		const xy = getXY(e);
+		dragStart = { x: xy.x, y: xy.y };
 		stickerStart = {
 			top: parseFloat(sticker.style.top) || 0,
 			left: parseFloat(sticker.style.left) || 0,
 		};
 		updateReadout(sticker);
-	});
+	}
 
-	document.addEventListener('mousemove', (e) => {
+	// Move drag (mouse + touch)
+	function onDragMove(e) {
+		if (!editMode) return;
+
+		// Pinch resize with two fingers
+		if (e.touches && e.touches.length === 2 && lastTouchedSticker) {
+			e.preventDefault();
+			const dist = getTouchDist(e);
+			const scale = dist / pinchStartDist;
+			let w = Math.max(5, Math.min(90, pinchStartW * scale));
+			let h = Math.max(5, Math.min(95, pinchStartH * scale));
+			lastTouchedSticker.style.width = w + '%';
+			lastTouchedSticker.style.height = h + '%';
+			updateReadout(lastTouchedSticker);
+			return;
+		}
+
 		if (!activeSticker) return;
+		e.preventDefault();
+		const xy = getXY(e);
 		const wd = activeSticker.closest('.window-display');
 		const rect = wd.getBoundingClientRect();
-		const dx = ((e.clientX - dragStart.x) / rect.width) * 100;
-		const dy = ((e.clientY - dragStart.y) / rect.height) * 100;
+		const dx = ((xy.x - dragStart.x) / rect.width) * 100;
+		const dy = ((xy.y - dragStart.y) / rect.height) * 100;
 		activeSticker.style.left = (stickerStart.left + dx) + '%';
 		activeSticker.style.top = (stickerStart.top + dy) + '%';
 		updateReadout(activeSticker);
-	});
+	}
 
-	document.addEventListener('mouseup', () => {
-		if (activeSticker) {
+	// End drag (mouse + touch)
+	function onDragEnd(e) {
+		if (activeSticker || lastTouchedSticker) {
 			savePositions();
 			activeSticker = null;
 		}
-	});
+	}
+
+	// Mouse events
+	document.addEventListener('mousedown', onDragStart);
+	document.addEventListener('mousemove', onDragMove);
+	document.addEventListener('mouseup', onDragEnd);
+
+	// Touch events
+	document.addEventListener('touchstart', onDragStart, { passive: false });
+	document.addEventListener('touchmove', onDragMove, { passive: false });
+	document.addEventListener('touchend', onDragEnd);
+
+	// +/− Buttons to resize last touched sticker
+	function resizeByStep(delta) {
+		const sticker = lastTouchedSticker;
+		if (!sticker || !editMode) {
+			info.textContent = '⚠️ Erst einen Sticker antippen, dann ➕ oder ➖ drücken.';
+			return;
+		}
+		let w = parseFloat(sticker.style.width) || 30;
+		let h = parseFloat(sticker.style.height) || 55;
+		w = Math.max(5, Math.min(90, w + delta * 3));
+		h = Math.max(5, Math.min(95, h + delta * 3));
+		sticker.style.width = w + '%';
+		sticker.style.height = h + '%';
+		updateReadout(sticker);
+		savePositions();
+	}
+
+	shrinkBtn.addEventListener('click', (e) => { e.stopPropagation(); resizeByStep(-1); });
+	growBtn.addEventListener('click', (e) => { e.stopPropagation(); resizeByStep(1); });
 
 	// Scroll wheel to resize sticker
 	document.addEventListener('wheel', (e) => {
