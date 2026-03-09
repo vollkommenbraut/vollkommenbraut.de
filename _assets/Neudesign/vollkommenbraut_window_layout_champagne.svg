@@ -23,13 +23,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.40370368"
-     inkscape:cx="979.67896"
-     inkscape:cy="1107.2478"
-     inkscape:window-width="1728"
-     inkscape:window-height="1051"
-     inkscape:window-x="1762"
-     inkscape:window-y="1574"
+     inkscape:zoom="0.52058921"
+     inkscape:cx="792.3714"
+     inkscape:cy="1079.546"
+     inkscape:window-width="2461"
+     inkscape:window-height="1387"
+     inkscape:window-x="74"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg5" />
   <defs
@@ -48,41 +48,53 @@
      id="rect1" />
   <text
      x="800.57751"
-     y="346.03671"
+     y="250.03671"
      text-anchor="middle"
      font-family="Didot, Bodoni, 'Times New Roman', serif"
      font-size="110px"
      id="text1"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:110px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=500';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 500;letter-spacing:-4px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4">Brautberatung nach Termin</text>
   <text
-     x="799.44"
-     y="486.03671"
+     x="800.28003"
+     y="602.03674"
      text-anchor="middle"
      font-family="Didot, Bodoni, 'Times New Roman', serif"
      font-size="110px"
      id="text2"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=500';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 500;letter-spacing:-2.17px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4">Online Buchung</text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:74.6667px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=500';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 500;letter-spacing:-2.17px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:74.6667px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=600';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 600"
+       id="tspan2">Termin hier buchen</tspan></text>
+  <text
+     x="800.60803"
+     y="429.68707"
+     text-anchor="middle"
+     font-family="Didot, Bodoni, 'Times New Roman', serif"
+     font-size="110px"
+     id="text2-3"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=600';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 600;letter-spacing:-2.17px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=600';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 600"
+       id="tspan1">Größe 44-60+</tspan></text>
   <path
      style="fill:#000000"
      id="path12" />
   <text
-     x="798.15497"
-     y="1233.3029"
+     x="798.37598"
+     y="1215.3029"
      text-anchor="middle"
      font-family="Didot, Bodoni, 'Times New Roman', serif"
      font-size="90px"
      id="text3"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=500';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 500;letter-spacing:-5.03px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4">@vollkommenbraut</text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:74.6667px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, @opsz=96,wght=600';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 96, 'wght' 600;letter-spacing:-5.03px;text-anchor:middle;fill:#d8c0a4;stroke:#d8c0a4">@vollkommenbraut</text>
   <text
      xml:space="preserve"
      id="text6"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:55px;font-family:'Bodoni Moda';-inkscape-font-specification:'Bodoni Moda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect6);display:inline;fill:#000000" />
   <g
      id="g2"
-     transform="translate(-11.853202)">
+     transform="translate(-8.102448)">
     <g
        id="g1"
-       transform="translate(-158.16115,-4.8828125)">
+       transform="matrix(0.82861148,0,0,0.82865209,-40.317355,148.36008)">
       <rect
          x="624.51434"
          y="753.22565"
@@ -111,7 +123,7 @@
          ry="20.823057" />
     </g>
     <image
-       x="814.35321"
+       x="802.5"
        y="722.34283"
        width="352"
        height="352"
@@ -134,7 +146,7 @@
      id="g8" />
   <g
      id="g3"
-     transform="matrix(1.7809595,0,0,1.7549276,-541.61338,-1263.7461)">
+     transform="matrix(1.7809595,0,0,1.7549276,-541.61338,-1229.7461)">
     <path
        id="path98"
        d="m 753.30933,1841.952 c -103.468,0 -187.64266,-84.176 -187.64266,-187.6427 0,-103.4667 84.17466,-187.6426 187.64266,-187.6426 103.468,0 187.6427,84.1759 187.6427,187.6426 0,103.4667 -84.1747,187.6427 -187.6427,187.6427 m 0,-377.952 C 648.372,1464 563,1549.372 563,1654.3093 c 0,104.9373 85.372,190.3093 190.30933,190.3093 104.9373,0 190.3093,-85.372 190.3093,-190.3093 0,-104.9373 -85.372,-190.3093 -190.3093,-190.3093"
