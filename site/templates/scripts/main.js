@@ -1,5 +1,8 @@
 // 	Slider
   $(function() {
+	if (!$.fn.responsiveSlides || !$(".rslides").length) {
+		return;
+	}
 	$(".rslides").responsiveSlides({
 		  auto: true,             // Boolean: Animate automatically, true or false
 		  speed: 700,            // Integer: Speed of the transition, in milliseconds
