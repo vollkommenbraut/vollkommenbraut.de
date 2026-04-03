@@ -19,6 +19,25 @@ A beautiful, responsive landing page for a bridal business, built with HTML and 
 - HTML5
 - CSS3 (Grid, Flexbox, animations)
 - Google Fonts (Playfair Display, Montserrat)
+- Tailwind CSS (compiled with Tailwind CLI)
+
+## Tailwind Build
+
+This project now uses a local Tailwind build instead of `cdn.tailwindcss.com`.
+
+```bash
+npm install
+npm run tailwind:build
+```
+
+For local development with auto-rebuild:
+
+```bash
+npm run tailwind:watch
+```
+
+Input file: `site/templates/styles/tailwind.input.css`  
+Output file: `site/templates/styles/tailwind.css`
 
 ## Getting Started
 

@@ -1,0 +1,12 @@
+{
+  "name": "vollkommenbraut-de",
+  "private": true,
+  "scripts": {
+    "tailwind:build": "tailwindcss -c tailwind.config.js -i ./site/templates/styles/tailwind.input.css -o ./site/templates/styles/tailwind.css --minify",
+    "tailwind:watch": "tailwindcss -c tailwind.config.js -i ./site/templates/styles/tailwind.input.css -o ./site/templates/styles/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
+

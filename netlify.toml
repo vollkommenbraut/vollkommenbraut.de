@@ -4,7 +4,7 @@
 
 [build]
   publish = "."
-  command = "echo 'Static site - no build needed'"
+  command = "npm ci && npm run tailwind:build"
 
 # Disable production deploys (main site is on GitHub Pages)
 [context.production]
@@ -12,10 +12,10 @@
 
 # Enable branch/PR deploys for previews
 [context.deploy-preview]
-  command = "rm -f CNAME && echo 'Preview ready'"
+  command = "npm ci && npm run tailwind:build && rm -f CNAME && echo 'Preview ready'"
 
 [context.branch-deploy]
-  command = "rm -f CNAME && echo 'Branch deploy ready'"
+  command = "npm ci && npm run tailwind:build && rm -f CNAME && echo 'Branch deploy ready'"
 
 # Headers for the preview
 [[headers]]
