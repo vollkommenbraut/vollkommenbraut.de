@@ -191,6 +191,10 @@ img { width: 100%; }
 .wrapper_bild.volles_format { position: relative; overflow: hidden; }
 
 .galerie_wrapper, .drei_bilder_wrapper, .vier_bilder_wrapper { display: flex; }
+.galerie_wrapper { display: block; column-count: 3; column-gap: 0.5rem; }
+.galerie_wrapper .wrapper_bild.dreispaltig.galerie { display: contents; }
+.galerie_wrapper .bild.rounded { break-inside: avoid; margin-bottom: 0.5rem; border-radius: 12px; overflow: hidden; width: 100%; }
+.galerie_wrapper .bild.rounded img { width: 100%; height: auto; display: block; border-radius: 12px; }
 /* .drei_bilder_wrapper { padding: 4rem 0 3.2rem 0; } */
 
 
@@ -342,7 +346,9 @@ h4 { font-family: europa, sans-serif; font-size: 1.3rem; font-weight: 300; font-
   .wrappy_no { padding: 0 0 2.4rem 0; }
   .wrappy:has(div.linkfeld) { padding: 2rem 0 0 0; margin-bottom: -20px; }
   .wrappy:has(div.linkfeld.linie) { padding: 2rem 0 0 0; margin-bottom: 0px; }
-  .galerie_wrapper, .drei_bilder_wrapper, .vier_bilder_wrapper { display: block; }
+  .galerie_wrapper { column-count: 2; column-gap: 0.4rem; }
+  .galerie_wrapper .bild.rounded { margin-bottom: 0.4rem; }
+  .drei_bilder_wrapper, .vier_bilder_wrapper { display: block; }
   .wrapper_bild.volles_format div.text_teaser { font-size: 5rem; }
   
   .volle_breite:has(div.buchen.nav.zentriert) { margin-top: -3rem; }
