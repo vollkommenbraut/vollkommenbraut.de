@@ -25,5 +25,7 @@ node_modules/
 .env.local
 
 # Large video source files (originals, not for web)
-_assets/victoriapriebe_vollkommen-braut_2026-05-13_1745/*.mov
+_assets/**/*.mov
+_assets/**/*.MOV
+_assets/**/*.mp4
 
