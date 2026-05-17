@@ -93,18 +93,27 @@
 			}
 		}
 
-		/* Slider container animation */
-		#slider_start {
+		/* Hero video container animation */
+		#hero_video {
 			position: relative;
 			z-index: 1;
 			opacity: 0;
 			animation: heroImage 1200ms cubic-bezier(0.22, 1, 0.36, 1) 100ms forwards;
+			padding-bottom: 3rem;
 		}
 
-		/* Ensure slider images display correctly */
-		#slider_start .rslides img {
+		#hero_video video {
 			width: 100%;
 			height: auto;
+			display: block;
+		}
+
+		/* On mobile: make video more immersive */
+		@media (max-width: 768px) {
+			#hero_video video {
+				max-height: 60vh;
+				object-fit: cover;
+			}
 		}
 
 		/* Elegant scroll reveal animation for benefit cards */
@@ -161,7 +170,16 @@
 
 <div id="content_wrapper">
 
-	<!-- Hero Slider -->
+	<!-- Hero Video -->
+	<div id="hero_video" class="w-full">
+		<video autoplay muted loop playsinline
+		       poster="site/files_extra/videos/hero-poster.jpg"
+		       aria-label="Einblick in die Vollkommen.Braut Boutique in Hamburg">
+			<source src="site/files_extra/videos/hero.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<!-- Old image slider (kept as fallback, remove when no longer needed)
 	<div id="slider_start" class="w-full">
 		<ul class="rslides rslides1">
 			<li><img src="site/assets/files/1/img_2358_16-9.jpg" alt="Curvy Brautkleid Anprobe"></li>
@@ -170,6 +188,7 @@
 			<li><img src="site/assets/files/1/img_2372_16-9.jpg" alt="Curvy Brautkleid"></li>
 		</ul>
 	</div>
+	-->
 
 	<div id="content">
 

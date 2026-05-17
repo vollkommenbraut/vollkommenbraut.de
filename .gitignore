@@ -22,3 +22,7 @@ node_modules/
 # Local development
 .env
 .env.local
+
+# Large video source files (originals, not for web)
+_assets/victoriapriebe_vollkommen-braut_2026-05-13_1745/*.mov
+
