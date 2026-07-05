@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			transition: opacity 0.7s ease;
 			box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
 		">
-			<img src="_assets/Sale Juli 2026.png" alt="Sale" style="width: 100%; height: auto; display: block;">
+			<img src="sites/assets/sales/sales_juli_2026.png" alt="Sale" style="width: 100%; height: auto; display: block;">
 		</div>
 		
 		<button id="sale-popup-close" style="
