@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			background: none;
 			border-radius: 0;
 			width: auto;
-			max-width: min(90vw, calc(90vh * 1080 / 1436));
+			max-width: min(90vw, calc(90vh * 1080 / 1444));
 			max-height: 90vh;
 			overflow: hidden;
 			opacity: 0;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			margin: 0;
 			line-height: 0;
 		">
-			<img src="site/assets/walk-in-donnerstag.jpg?v=20261105" alt="Walk-in jeden Donnerstag von 16 bis 18 Uhr – ganz ohne Termin. Lerne unsere Kollektion kennen, keine Brautkleidanprobe." style="width: 100%; height: auto; display: block; border-radius: 0; margin: 0; padding: 0;">
+			<img src="site/assets/walk-in-donnerstag.jpg?v=20261105b" alt="Walk-in jeden Donnerstag von 16 bis 18 Uhr – ganz ohne Termin. Lerne unsere Kollektion kennen, keine Brautkleidanprobe." style="width: 100%; height: auto; display: block; border-radius: 0; margin: 0; padding: 0;">
 		</div>
 		
 		<button id="sale-popup-close" style="
